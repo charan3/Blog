@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    {% if signedin == True %}
+    <form action="/newpost" method="GET">
+        <label>
+            <div><input type="submit" value="New Post"></div>
+        </label>
+    </form>
+    <br>
+    <br>
+    {% endif %}
+    
+    {% for blog in blogs %}
+    <div>
+        <h2>{{blog.title}}</h2>
+       <span style="text-align: right;">{{blog.created}}</span>
+    </div>
+    <hr>
+    <div>{{blog.body}}</div>
+    <br>
+    <br>
+    <br>
+    {% endfor %}
+{% endblock %}
